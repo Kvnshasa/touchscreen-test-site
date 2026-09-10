@@ -1,0 +1,93 @@
+PRIMARY KEYWORD: touchscreen test
+
+INTENT: Someone with a faulty device that wants to check if all areas of their screen
+register a touch correctly.
+
+SECONDARY PHRASES:
+touch screen test, touchscreen tester, screen touch test, touch screen check
+
+COMP:
+- [onlinemictest.com] multipurpose website with majority of the traction in this field.
+Simple start test button with how to properly perform the test and some questions that are
+answered and give them room to show off some of their other tools.
+- [screendetect.com] Offers both a touch screen and a ghost screen test much smaller grid
+of sqaures to make the touch screen test more accurate explaination of terms at the bottom
+like a 'dead zone' and what and how to actually conduct the tests.
+- [xbitlabs] multipurpose test with a touchscreen test that can track stats
+like max touches and gesture history (pinches, taps etc) or a grid to detect dead zones.
+or one where u click on a randomly shown point to test the touchscreen detects that point.
+
+VALUE PROP:
+Use this free touchscreen test to instantly test every part of your screen for dead zones,
+ghost touches or unresponsive spots - no download required.
+
+PRIMARY KEYWORD: touch screen test
+
+INTENT: Someone with a faulty device that wants to check if all areas of their screen
+register a touch correctly.
+
+SECONDARY PHRASES:
+touchscreen test, touchscreen tester, screen touch test, touch screen check
+
+COMP:
+- [onlinemictest.com] multipurpose website with majority of the traction in this field.
+Simple start test button with how to properly perform the test and some questions that are
+answered and give them room to show off some of their other tools.
+- [google play store] recommending apps that allow you to carry out the touch screen test
+but you have to download those apps
+- [screentester.io] website that allows you to do a multi-touch test, grid scan to detect
+ded zones and a draw tracking to check accuracy. Explaination at the bottom of terms like 
+capacitive touch, touch precision test and how to do the multi-touch test and touch screen test.
+
+PRIMARY KEYWORD: touchscreen tester
+
+INTENT: Someone with a faulty device that wants to check if all areas of their screen
+register a touch correctly.
+
+SECONDARY PHRASES:
+touchscreen test, touch screen test, screen touch test, touch screen check
+
+COMP:
+- [onlinemictest.com] multipurpose website with majority of the traction in this field.
+Simple start test button with how to properly perform the test and some questions that are
+- [people also ask] questions like 'how can I test my touchscreen', 'how do I fix my unresponsive
+touch screen' or 'what app can I use to test my touch screen?'
+- [xbitlabs] multipurpose test with a touchscreen test that can track stats
+like max touches and gesture history (pinches, taps etc) or a grid to detect dead zones.
+or one where u click on a randomly shown point to test the touchscreen detects that point.
+
+PRIMARY KEYWORD: screen touch test
+
+INTENT: Someone with a faulty device that wants to check if all areas of their screen
+register a touch correctly.
+
+SECONDARY PHRASES:
+touchscreen test, touch screen test, touchscreen tester, touch screen check
+
+COMP:
+- [onlinemictest.com] multipurpose website with majority of the traction in this field.
+Simple start test button with how to properly perform the test and some questions that are
+answered and give them room to show off some of their other tools.
+- [screentester.io] website that allows you to do a multi-touch test, grid scan to detect
+ded zones and a draw tracking to check accuracy. Explaination at the bottom of terms like 
+capacitive touch, touch precision test and how to do the multi-touch test and touch screen test.
+- [people also ask] questions like 'how to check for ghost touch?' or 'what is the best app for 
+testing touch screens?' or 'how to test touchscreen on my Android phone?'
+
+PRIMARY KEYWORD: touch screen check
+
+INTENT: Someone with a faulty device that wants to check if all areas of their screen
+register a touch correctly.
+
+SECONDARY PHRASES:
+touchscreen test, touch screen test, touchscreen tester, screen touch test
+
+COMP:
+- [onlinemictest.com] multipurpose website with majority of the traction in this field.
+Simple start test button with how to properly perform the test and some questions that are
+answered and give them room to show off some of their other tools.
+- [people also ask] questions like 'what is a touchscreen test?' or 'how can I test my mobile
+touch screen?' or 'what is the code for touchscreen check?'
+- [screentester.io] website that allows you to do a multi-touch test, grid scan to detect
+ded zones and a draw tracking to check accuracy. Explaination at the bottom of terms like 
+capacitive touch, touch precision test and how to do the multi-touch test and touch screen test.

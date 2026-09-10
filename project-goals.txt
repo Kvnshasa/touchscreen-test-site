@@ -1,0 +1,35 @@
+Day 1
+
+What I'm building:
+A website that allows users to do a touchscreen test and determine if their touchscreen
+is faulty and needs repair or if it is working fine for touch-points and multi-touch.
+
+Why I'm building:
+Allows me to learn web development skills, build something in real time and to learn
+SEO skills in optimising the website to be near the top of results page to get traffic
+and thereby generate revenue via Google Adsense.
+
+What I want to achieve in 30 days:
+I want to have a functioning website that either generates me a small but sizeable amount of
+income at the end of each month or atleast have palpable traffic that shows that this is worth
+continuing and that I'm certainly making progress with this, rather than wasting my time.
+
+Metrics I will track:
+- Website visitors
+- Touchscreen test uses
+- Google search clicks 
+- Google search impressions
+- Average search position
+- Revenue (At the end of the 30 days)
+
+HTML:
+Determines the actual structure of the page and what will be included on it
+
+CSS:
+Handles the actual design and makes thing look pretty
+
+Javascript:
+Handles how the website behaves and functionsDay
+
+Devtools:
+Inspection and handling errors or bugs on the page

@@ -1,0 +1,53 @@
+/
+Purpose: Let visitors test their touchscreen.
+
+ /how-it-works/
+Purpose: Explain how the touchscreen test works to visitors.
+
+ /touchscreen-test-guide/
+Purpose: Teach visitors how to properly test their touchscreen and understand the results.
+
+ /faq/
+Purpose: Answer common questions about touchscreen testing for visitors.
+
+ /about/
+Purpose: Explain what this website is and why it was created.
+
+ /contact/
+Purpose: Give visitors a way to contact the site owner.
+
+ /privacy/
+Purpose: Explain how visitor information is handled and secured.
+
+HOME
+ ↓
+TOUCHSCREEN TEST
+ ↓
+├── How It Works
+├── Touchscreen Test Guide
+├── FAQ
+├── About
+
+
+|── Contact
+└── Privacy
+
+/how-it-works/
+Links back to touchscreen test
+After learning how it works they can immediately go ahead and do the test
+
+ /touchscreen-test-guide/
+Link back to touchscreen test
+After reading guide they'll understand what 'dead zones' are and what a test screen test
+does and instructions to carry it out so they can try the test right after
+
+ /faq/
+Links back to touchscreen test
+After getting answers to common questions, they can immediately perform the test.
+
+ /about/
+Links back to touchscreen test
+After learning why the website exists and what it does, they can use the tool.
+ /privacy/
+Links back to contact
+Visitors with further privacy/data questions can contact the site owner.

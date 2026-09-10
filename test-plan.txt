@@ -1,0 +1,25 @@
+Visitor Flow:
+- Land on page
+- Read instructions
+- Click button to start the test
+- Touch and see whether or not points were detected
+- Stop/Release
+- See result after a few seconds/minute
+
+Single-Touch Behaviour:
+One visible point which follows the user around as they click/move their mouse
+or finger around the test area.
+
+Multi-Touch Behaviour:
+Severala visivle points that follow the user around as they click/mouse their mouse
+or fingers on multiple areas in the test area. (atleast 2)
+
+Useful results:
+- Maximum simultaneous touches
+- Whether or not the test area responded
+- If movement was detected in multiple regions
+- Final verdict if their touchscreen appears to be working or not
+
+Limitation:
+- Cannot tell exactly if every single part of the screen is working
+

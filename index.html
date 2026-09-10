@@ -1,0 +1,64 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<title>Touchscreen Test</title>
+<meta name="description" content="Test your phone, laptop or tablet touchscreen for dead zones, missed touches, ghost touches and other common problems.">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<header>
+<h1>Touchscreen Test</h1>
+<a href="#">About</a>
+</header>
+
+<p>This tool is a touchscreen tester allowing anyone to test their screen for dead zones and 
+multi-touch. Suitable for anyone who wants to test their laptop, phone, tablet or any touchscreen device.
+This test takes only a few seconds to do.</p>
+
+<h2>How to use it</h2>
+
+<p>
+1. Click on Start to begin <br>
+2. Move your finger across the 5 regions <br>
+3. A result will be shown at the bottom <br>
+4. If it displays that all 5 regions have been touched, you've tested the full screen for dead zones <br>
+5. Click Reset to restart the test
+</p>
+
+<h2>What is multi-touch?</h2>
+
+<p>The screen's ability to recognise more than one point of contact. This touchscreen test
+allows multiple fingers to be tested and multiple corresponding dots should appear to match
+those fingers.</p>
+
+<h2>What does the result mean?</h2>
+
+<p>When you test with more than one finger, the active touch count should rise above 1 -
+that's how you know multi-touch is working. The regions counter shows how much of the screen 
+you've actually covered; reaching 5 of 5 means you've tested every corner and the center, which 
+helps you spot a dead zone if one area never seems to register.
+</p>
+
+
+<button id="start">Start</button>
+<p id="test">Ready? Press Start to begin!</p>
+
+<div id="test-area">
+  <div id="region-top-left"></div>
+  <div id="region-top-right"></div>
+  <div id="region-bottom-left"></div>
+  <div id="region-bottom-right"></div>
+  <div id="region-center"></div>
+</div>
+
+<p id="result"></p>
+<p id="active-touch-count"></p>
+<p id="max-touch-count">Maximum touches: 0</p>
+<p id="regions-status"></p>
+
+<button id="reset">Reset</button>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+seo-checklist.txt
+
+- Title/H1 mismatch — FIXED (both now "Touchscreen Test")
+- Missing meta description — FIXED (added, matches value prop)
+- About link goes nowhere (href="#") — NOT FIXED, low priority, revisit later

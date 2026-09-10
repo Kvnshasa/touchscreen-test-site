@@ -1,0 +1,45 @@
+{onlinemictest.com}
+USEFUL:
+Simple grid test with instructions that appear beforehand
+WEAKNESS:
+Multipurpose site so it's not specialised
+
+{screendetect.com}
+USEFUL:
+Offer a ghost touch test
+WEAKNESS:
+Smaller grid means the testing could be less precise
+
+{xbitlabs.com}
+USEFUL:
+Active touch and maximum touch count for multiple tests
+WEAKNESS:
+Doesn't have clear instructions for each test + cannot fullscreen
+
+{screentester.io}
+USEFUL:
+Explains what are all the types of errors associated with touchscreens
+WEAKNESS:
+Buttons like fullscreen and clear conincide with the instructions making them
+harder to read.
+
+{google play store}
+USEFUL:
+App supposedly dedicated for touchscreen testing
+WEAKNESS:
+Have to install a whole app for a 10 second test
+
+1. Making it a simple grid test
+2. Offer ghost touch test and other associated tests
+3. Offer a quick and simple explaination for all of them
+
+Touch points — detects where you touch
+Multi-touch — detects multiple simultaneous touches
+Movement — detects whether touches can move around the test area
+Area testing — helps identify areas that aren't responding
+Max Touches — records maximum simultaneous touches
+
+This test can show whether your browser is detecting touches, 
+but it cannot guarantee that every part of the physical touchscreen hardware is
+working correctly or identify the exact cause of a hardware problem.
+
