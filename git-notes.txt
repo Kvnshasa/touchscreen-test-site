@@ -1,0 +1,13 @@
+Git Notes
+
+A repository stores my project and its history.
+
+A commit is a saved checkpoint of my project at a specific point in time.
+
+For this project, I created a GitHub repository called touchscreen-test-site and uploaded my project files.
+
+I made my first commit to save the original version of the project.
+
+Then I made a small change to my index.html file, uploaded the updated file, and made a second commit.
+
+This means I now have two checkpoints in my project history.
