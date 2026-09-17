@@ -88,3 +88,11 @@ width: 20%;
 height: 20%;
 background-color: whitesmoke;
 }
+
+#summary {
+min-height: 1.5em;
+}
+
+footer {
+margin-top: 30px;
+}

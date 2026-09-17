@@ -8,9 +8,18 @@ const testArea = document.getElementById("test-area");
 const activeTouches = document.getElementById("active-touch-count");
 const maxTouches = document.getElementById("max-touch-count");
 const regionsStatus = document.getElementById("regions-status");
+const summary = document.getElementById("summary");
 let testStart = false;
 let maxTouch = 0;
 let regionsTouched = { topLeft: false, topRight: false, bottomLeft: false, bottomRight: false, center: false };
+
+const regionLabels = {
+topLeft: "top-left",
+topRight: "top-right",
+bottomLeft: "bottom-left",
+bottomRight: "bottom-right",
+center: "center"
+};
 
 // Check if they've clicked the start button and sets testStart -> True
 button.addEventListener("click", function() {
@@ -150,12 +159,12 @@ reset.addEventListener("click", function() {
 testStart = false;
 maxTouch = 0;
 maxTouches.innerHTML = "Maximum Touches: " + maxTouch;
-activeTouches.innerHTML = "Active touches: 0";
+activeTouches.innerHTML = "Active Touches: 0";
 test.innerHTML = "Ready? Press Start to begin!";
 result.innerHTML = ""
 regionsStatus.innerHTML = ""
 regionsTouched = { topLeft: false, topRight: false, bottomLeft: false, bottomRight: false, center: false };
-
+summary.innerHTML = ""
 for (let [key, value] of activePointers) {
 activePointers.get(key).remove();
 }
@@ -168,4 +177,17 @@ activePointers.clear();
 function updateRegionsDisplay() {
   const touchedCount = Object.values(regionsTouched).filter(value => value == true).length
   regionsStatus.innerHTML = "Regions touched: " + touchedCount + " of 5";
+  updateSummary();
+}
+
+function updateSummary() {
+const missing = Object.keys(regionsTouched).filter(key => !regionsTouched[key]);
+
+if (missing.length === 0) {
+summary.innerHTML = "All 5 regions touched, max " + maxTouch + " simultaneous touch" + (maxTouch === 1 ? "" : "es") + " - your touchscreen appears to be working normally. ";
+}
+else {
+const missingNames = missing.map(key => regionLabels[key]).join(", ");
+summary.innerHTML = "Test incomplete - you haven't touched: " + missingNames + ". Drag into those areas to finish the test."; 
+}
 }
