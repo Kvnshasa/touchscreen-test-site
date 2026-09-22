@@ -3,7 +3,6 @@
 const button = document.getElementById("start");
 const reset = document.getElementById("reset");
 let test = document.getElementById("test");
-const result = document.getElementById("result");
 const testArea = document.getElementById("test-area");
 const activeTouches = document.getElementById("active-touch-count");
 const maxTouches = document.getElementById("max-touch-count");
@@ -35,7 +34,6 @@ div.addEventListener("pointerdown", function(event) {
 if (testStart) {
 console.log(event.clientX)
 console.log(event.clientY)
-result.innerHTML = "The coordinates clicked were( " + event.clientX + "," + event.clientY + ")";
 }});
 
 {
@@ -51,7 +49,6 @@ div.addEventListener("pointermove", function(event) {
 if (testStart) {
 console.log(event.clientX)
 console.log(event.clientY)
-result.innerHTML = "Your mouse has moved to( " + event.clientX + "," + event.clientY + ")";
 
 // Gets the current pointer and the test-area dimensions
 const dotRetrieved = activePointers.get(event.pointerId);
@@ -161,7 +158,6 @@ maxTouch = 0;
 maxTouches.innerHTML = "Maximum Touches: " + maxTouch;
 activeTouches.innerHTML = "Active Touches: 0";
 test.innerHTML = "Ready? Press Start to begin!";
-result.innerHTML = ""
 regionsStatus.innerHTML = ""
 regionsTouched = { topLeft: false, topRight: false, bottomLeft: false, bottomRight: false, center: false };
 summary.innerHTML = ""
