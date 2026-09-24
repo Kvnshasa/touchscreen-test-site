@@ -1,0 +1,19 @@
+- Run the tool once, confirm Start/Reset/touch/multi-touch/summary all work
+- Check Search Console for new impressions/clicks/errors
+- Spot-check for broken links (nav + footer on each page)
+- Skim content for anything now inaccurate or outdated
+- Note any user feedback received (none yet, but check if channels exist)
+
+Immediate fixes (act same day):
+- Core test broken (touch not detected, Reset not working)
+- Site unreachable / down
+- Mobile completely unusable (not just imperfect — broken)
+- A major page (Home, Privacy) missing or 404ing
+- Privacy/security issue (e.g. accidentally logging data)
+- Result gives a misleading verdict (says "working" when it isn't, or vice versa)
+
+Can wait:
+- Colors / visual design (Month 2 item, already decided)
+- Minor wording tweaks
+- New features (ghost-touch test, etc. — later-roadmap.txt)
+- Speculative SEO tweaks not backed by Search Console data
