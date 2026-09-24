@@ -176,6 +176,7 @@ function updateRegionsDisplay() {
   updateSummary();
 }
 
+// Function creates a list of regions not touched and displays the regions that need to be touched
 function updateSummary() {
 const missing = Object.keys(regionsTouched).filter(key => !regionsTouched[key]);
 
