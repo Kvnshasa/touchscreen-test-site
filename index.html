@@ -18,6 +18,30 @@ multi-touch. Suitable for anyone who wants to run a touch screen
 test their laptop, phone, tablet or any touchscreen device.
 </p>
 
+<p>
+Click start, then touch or drag across the box to test your screen.
+Your result will appear underneath.
+</p>
+
+<button id="start">Start</button>
+<p id="test">Ready? Press Start to begin!</p>
+
+<div id="test-area">
+  <div id="region-top-left"></div>
+  <div id="region-top-right"></div>
+  <div id="region-bottom-left"></div>
+  <div id="region-bottom-right"></div>
+  <div id="region-center"></div>
+</div>
+
+<p id="active-touch-count">Active Touches: 0</p>
+<p id="max-touch-count">Maximum Touches: 0</p>
+<p id="regions-status"></p>
+<p id="summary"></p>
+
+<button id="reset">Reset</button>
+
+
 <h2>How to use it</h2>
 
 <p>
@@ -51,25 +75,6 @@ of what a missed region might mean, see our
 <a href="touchscreen-guide/touchscreen-guide.html">touchscreen testing guide
 </a>
 </p>
-
-
-<button id="start">Start</button>
-<p id="test">Ready? Press Start to begin!</p>
-
-<div id="test-area">
-  <div id="region-top-left"></div>
-  <div id="region-top-right"></div>
-  <div id="region-bottom-left"></div>
-  <div id="region-bottom-right"></div>
-  <div id="region-center"></div>
-</div>
-
-<p id="active-touch-count">Active Touches: 0</p>
-<p id="max-touch-count">Maximum Touches: 0</p>
-<p id="regions-status"></p>
-<p id="summary"></p>
-
-<button id="reset">Reset</button>
 
 <script src="script.js"></script>
 
