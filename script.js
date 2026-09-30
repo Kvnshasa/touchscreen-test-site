@@ -23,7 +23,7 @@ center: "center"
 };
 
 //Check if they click fullscreen button and enters or exits fullscreen
-fullscreen.addEventListener("click", function() {
+fullscreen.addEventListener("click", function(event) {
 event.stopPropagation();
 screenRequest = !screenRequest;
 if (screenRequest) {
@@ -47,7 +47,6 @@ screenRequest = document.fullscreenElement != null;
 
 // Check if they've clicked the start button and sets testStart -> True
 button.addEventListener("click", function() {
-console.log("clicked")
 test.innerHTML = "Testing! Touch the area below";
 testStart = true;
 fullscreen.style.display = "inline-block";
@@ -73,61 +72,18 @@ function updateActiveTouchCount() {
 // Check if they are moving the mouse and where to
 div.addEventListener("pointermove", function(event) {
 if (testStart) {
-console.log(event.clientX)
-console.log(event.clientY)
 
 // Gets the current pointer and the test-area dimensions
 const dotRetrieved = activePointers.get(event.pointerId);
 const rect = testArea.getBoundingClientRect();
 
-console.log(rect.width)
-console.log(rect.height)
 if (dotRetrieved) {
 
-// Converts coordinates relative to test area
-const storeX = event.clientX - rect.left
-const storeY = event.clientY - rect.top
+const {storeX, storeY} = positionDot(dotRetrieved, event);
 
-let RightSide = false;
-let BottomSide = false;
-
-// Converts CSS values to px distances
-const circleLeftPx   = rect.width  * 0.40;
-const circleTopPx    = rect.height * 0.40;
-const circleWidthPx  = rect.width  * 0.20;
-const circleHeightPx = rect.height * 0.20;
-
-// Finds centre of circle and then uses pythag to work out the distance of pointer to centre
-const centerX = circleLeftPx + (circleWidthPx / 2);
-const centerY = circleTopPx + (circleHeightPx / 2);
-const centerRadius = circleWidthPx / 2;
-const dx = storeX - centerX;
-const dy = storeY - centerY;
-const distance = Math.sqrt(dx*dx + dy*dy);
-
-// Check if coordinates are within the test area dimensions
 if (storeX > 0 && storeX < rect.width && storeY > 0 && storeY < rect.height) {
-
-dotRetrieved.style.left = event.clientX - rect.left + "px";
-dotRetrieved.style.top = event.clientY - rect.top + "px";
-
-// Check which regions have been clicked 
-if (storeX > rect.width/2) {
-RightSide = true;
+updateTouchedRegion(storeX, storeY);
 }
-if (storeY > rect.height/2) {
-BottomSide = true;
-}}
-
-if (distance < centerRadius) {
-      regionsTouched.center = true;
-    }
-else if (RightSide && BottomSide) {regionsTouched.bottomRight = true;} 
-else if (RightSide && !BottomSide) {regionsTouched.topRight = true;}
-else if (!RightSide && BottomSide) {regionsTouched.bottomLeft = true;}
-else if (!RightSide && !BottomSide) {regionsTouched.topLeft = true;}
-
-updateRegionsDisplay();
 }
 }});
 
@@ -137,6 +93,11 @@ if (testStart) {
 const dot = document.createElement("div");
 dot.className = "touch-point";
 testArea.appendChild(dot);
+
+const rect = testArea.getBoundingClientRect();
+const {storeX, storeY} = positionDot(dot, event);
+updateTouchedRegion(storeX, storeY);
+
 activePointers.set(event.pointerId, dot);
 updateActiveTouchCount();
 if (activePointers.size > maxTouch) {
@@ -214,4 +175,58 @@ else {
 const missingNames = missing.map(key => regionLabels[key]).join(", ");
 summary.innerHTML = "Test incomplete - you haven't touched: " + missingNames + ". Drag into those areas to finish the test."; 
 }
+}
+
+//Function handles the coordinates of the dot
+function positionDot(dot, event) {
+
+const rect = testArea.getBoundingClientRect();
+
+//Converts coordinates relative to the test area
+const storeX = event.clientX - rect.left;
+const storeY = event.clientY - rect.top;
+
+dot.style.left = storeX + "px";
+dot.style.top = storeY + "px";
+return {storeX, storeY};
+}
+
+//Function handles which regions have been touched
+function updateTouchedRegion(storeX, storeY) {
+
+const rect = testArea.getBoundingClientRect();
+
+let RightSide = false;
+let BottomSide = false;
+
+// Converts CSS values to px distances
+const circleLeftPx   = rect.width  * 0.40;
+const circleTopPx    = rect.height * 0.40;
+const circleWidthPx  = rect.width  * 0.20;
+const circleHeightPx = rect.height * 0.20;
+
+// Finds centre of circle and then uses pythag to work out the distance of pointer to centre
+const centerX = circleLeftPx + (circleWidthPx / 2);
+const centerY = circleTopPx + (circleHeightPx / 2);
+const centerRadius = circleWidthPx / 2;
+const dx = storeX - centerX;
+const dy = storeY - centerY;
+const distance = Math.sqrt(dx*dx + dy*dy);
+
+if (storeX > rect.width/2) {
+RightSide = true;
+}
+if (storeY > rect.height/2) {
+BottomSide = true;
+}
+
+if (distance < centerRadius) {
+      regionsTouched.center = true;
+    }
+else if (RightSide && BottomSide) {regionsTouched.bottomRight = true;} 
+else if (RightSide && !BottomSide) {regionsTouched.topRight = true;}
+else if (!RightSide && BottomSide) {regionsTouched.bottomLeft = true;}
+else if (!RightSide && !BottomSide) {regionsTouched.topLeft = true;}
+
+updateRegionsDisplay();
 }
