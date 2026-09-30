@@ -8,7 +8,9 @@ const activeTouches = document.getElementById("active-touch-count");
 const maxTouches = document.getElementById("max-touch-count");
 const regionsStatus = document.getElementById("regions-status");
 const summary = document.getElementById("summary");
+const fullscreen = document.getElementById("fullscreen");
 let testStart = false;
+let screenRequest = false;
 let maxTouch = 0;
 let regionsTouched = { topLeft: false, topRight: false, bottomLeft: false, bottomRight: false, center: false };
 
@@ -20,11 +22,29 @@ bottomRight: "bottom-right",
 center: "center"
 };
 
+//Check if they click fullscreen button and enters or exits fullscreen
+fullscreen.addEventListener("click", function() {
+screenRequest = !screenRequest;
+if (screenRequest) {
+testArea.requestFullscreen()
+}
+else {
+document.exitFullscreen()
+}
+})
+
+//Check if they use esc to exit fullscreen
+document.addEventListener("fullscreenchange", function () {
+screenRequest = document.fullscreenElement != null;
+
+})
+
 // Check if they've clicked the start button and sets testStart -> True
 button.addEventListener("click", function() {
 console.log("clicked")
 test.innerHTML = "Testing! Touch the area below";
 testStart = true;
+fullscreen.style.display = "inline-block";
 });
 
 const div = document.getElementById("test-area")
@@ -166,6 +186,7 @@ activePointers.get(key).remove();
 }
 
 activePointers.clear();
+fullscreen.style.display = "none";
 })
 }
 
