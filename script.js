@@ -24,6 +24,7 @@ center: "center"
 
 //Check if they click fullscreen button and enters or exits fullscreen
 fullscreen.addEventListener("click", function() {
+event.stopPropagation();
 screenRequest = !screenRequest;
 if (screenRequest) {
 testArea.requestFullscreen()
@@ -31,6 +32,11 @@ testArea.requestFullscreen()
 else {
 document.exitFullscreen()
 }
+})
+
+//Stop pointerdown on fullscreen button from creating a dot
+fullscreen.addEventListener("pointerdown", function(event) {
+event.stopPropagation();
 })
 
 //Check if they use esc to exit fullscreen
