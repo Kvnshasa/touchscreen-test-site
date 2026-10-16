@@ -173,6 +173,7 @@ background-color: var(--region-centre);
 border: 2px solid var(--outline);
 justify-content: center;
 align-items: center;
+padding: 0;
 }
 
 .region {
@@ -210,6 +211,8 @@ font-size: 16px;
 @media (max-width: 600px) {
 #region-centre {
 font-size: 0;
+}
+body {padding: 16px;
 }
 }
 
