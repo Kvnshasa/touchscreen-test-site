@@ -26,15 +26,16 @@ Click start, then touch or drag across the box to test your screen.
 Your result will appear underneath.
 </p>
 
+<div class="app-shell">
 <button id="start">Start</button>
 <p id="test">Ready? Press Start to begin!</p>
 
 <div id="test-area">
-  <div id="region-top-left"></div>
-  <div id="region-top-right"></div>
-  <div id="region-bottom-left"></div>
-  <div id="region-bottom-right"></div>
-  <div id="region-center"></div>
+  <div id="region-top-left" class="region">Top Left</div>
+  <div id="region-top-right" class="region">Top Right</div>
+  <div id="region-bottom-left" class="region">Bottom Left</div>
+  <div id="region-bottom-right" class="region">Bottom Right</div>
+  <div id="region-center" class="region">Centre</div>
 <button id="fullscreen">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
   <path d="M8 3H5a2 2 0 0 0-2 2v3"/>
@@ -45,13 +46,15 @@ Your result will appear underneath.
 </button>
 </div>
 
+<div class="status">
 <p id="active-touch-count">Active Touches: 0</p>
 <p id="max-touch-count">Maximum Touches: 0</p>
 <p id="regions-status"></p>
 <p id="summary"></p>
+</div>
 
 <button id="reset">Reset</button>
-
+</div>
 
 <h2>How to use it</h2>
 

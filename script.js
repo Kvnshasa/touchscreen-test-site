@@ -66,7 +66,7 @@ const activePointers = new Map();
 
 // Function updates number of current active touches
 function updateActiveTouchCount() {
-  activeTouches.innerHTML = "Active touches: " + activePointers.size;
+  activeTouches.innerHTML = "Active Touches: " + activePointers.size;
 }
 
 // Check if they are moving the mouse and where to
@@ -160,7 +160,7 @@ fullscreen.style.display = "none";
 // Function updates how many regions have been touched
 function updateRegionsDisplay() {
   const touchedCount = Object.values(regionsTouched).filter(value => value == true).length
-  regionsStatus.innerHTML = "Regions touched: " + touchedCount + " of 5";
+  regionsStatus.innerHTML = "Regions Touched: " + touchedCount + " of 5";
   updateSummary();
 }
 
@@ -200,9 +200,9 @@ let RightSide = false;
 let BottomSide = false;
 
 // Converts CSS values to px distances
-const circleLeftPx   = rect.width  * 0.40;
+const circleLeftPx   = rect.width  * 0.44;
 const circleTopPx    = rect.height * 0.40;
-const circleWidthPx  = rect.width  * 0.20;
+const circleWidthPx  = rect.width  * 0.12;
 const circleHeightPx = rect.height * 0.20;
 
 // Finds centre of circle and then uses pythag to work out the distance of pointer to centre

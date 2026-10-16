@@ -1,11 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+
+--background: hsl(210 18% 9%);
+--surface: hsl(210 18% 13%);
+--text: hsl(220 18% 80%);
+--muted-text: hsl(210 12% 60%);
+--accent: hsl(36 77% 60%);
+--accent-strong: hsl(36 30% 45%);
+
+--outline: rgba(255, 255, 255, 0.25);
+--border: rgba(255,255,255,0.06); 
+--glass: rgba(255,255,255,0.03);  
+--region-tleft: rgba(28,3,42,0.8);
+--region-tright: rgba(25, 50, 64, 0.8);
+--region-bleft: rgba(25, 50, 64, 0.8);
+--region-bright: rgba(28,3,42,0.8);
+--region-centre:rgba(50, 60, 71, 1);
+--radius: 12px;
+--gap: 20px;
+}
+
+* {
+box-sizing: border-box;
+}
+
+
 body {
-background-color: black;
-color: white;
+background-color: var(--background);
+color: var(--text);
 font-size: 16px;
-font-family: "Inter", sans-serif;
+font-family: "Figtree", "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
+line-height: 1.6;
 margin:0 auto;
 max-width: 1000px;
-padding: 20px;
+padding: 32px;
+min-height: 100vh;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+letter-spacing: 0.01em;
+}
+
+.app-shell {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.03));
+  border: 1px solid var(--border); 
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.02);
+  border-radius: 18px;
+  padding: 28px;
+  margin: 24px 0;
+}
+
+@media (max-width: 600px) {
+  .app-shell { padding: 16px; border-radius: 12px; }
+}
+
+a {
+color: var(--accent);
+}
+
+a:hover {
+color: var(--text);
+}
+
+a:focus-visible {
+outline: 2px solid var(--accent);
 }
 
 button {
@@ -13,42 +71,54 @@ border-radius: 10px;
 font-size: 16px;
 padding: 12px 20px;
 font-family: inherit;
-color: white;
-background-color: red;
+color: var(--background);
+background-color: var(--accent);
+border: none;
+cursor: pointer;
 
 }
 
+button:hover {
+background-color: var(--accent-strong);
+}
+
 h2 {
-font-size: 40px;
+font-size: clamp(1.4rem, 4vw, 1.9rem);
+margin-top: 40px;
 }
 
 header {
 display: flex;
 align-items: center;
-gap: 30px;
+gap: 10px;
 font-size: 25px;
 flex-wrap: wrap;
 }
 
 header h1 {
 width: 100%;
+margin: 0;
+line-height: 1.2;
 }
 
 #test-area {
-border: 1px solid white;
+border: 1px solid var(--border);
 min-height: 300px;
 touch-action: none;
 position: relative;
 user-select: none;
 -webkit-user-drag: none;
+border-radius: 16px;
+overflow: hidden;
 }
 
 .touch-point {
-background-color: red;
-width: 20px;
-height: 20px;
+background-color: var(--accent);
+width: 36px;
+height: 36px;
 border-radius: 50%;
 position: absolute;
+transform: translate(-50%, -50%);
 }
 
 #region-top-left {
@@ -57,7 +127,7 @@ top: 0;
 left: 0;
 width: 50%;
 height: 50%;
-background-color: blueviolet;  
+background-color: var(--region-tleft);  
 }
 
 #region-top-right {
@@ -66,7 +136,8 @@ top: 0;
 right: 0;
 width: 50%;
 height: 50%;
-background-color: blue;
+background-color: var(--region-tright);
+justify-content: flex-end;
 }
 
 #region-bottom-left {
@@ -75,7 +146,8 @@ bottom: 0;
 left: 0;
 width: 50%;
 height: 50%;
-background-color: greenyellow;
+background-color: var(--region-bleft);
+align-items: flex-end;
 }
 
 #region-bottom-right {
@@ -84,16 +156,30 @@ bottom: 0;
 right: 0;
 width: 50%;
 height: 50%;
-background-color: orange;
+background-color: var(--region-bright);
+justify-content: flex-end;
+align-items: flex-end;
 }
 
 #region-center {
 position: absolute;
-top: 40%;
-left: 40%;
-width: 20%;
-height: 20%;
-background-color: whitesmoke;
+top: 50%;
+left: 50%;
+width: 12%;
+aspect-ratio: 1;
+border-radius: 50%;
+transform: translate(-50%, -50%);
+background-color: var(--region-centre);
+border: 2px solid var(--outline);
+justify-content: center;
+align-items: center;
+}
+
+.region {
+display: flex;
+padding: 16px 20px;
+font-size: 14px;
+color: var(--muted-text);
 }
 
 #summary {
@@ -104,14 +190,27 @@ footer {
 margin-top: 30px;
 }
 
+.status {
+display: flex;
+flex-wrap: wrap;
+gap: 8px 24px;
+}
+
 @media (max-width: 480px) {
 header a {
 font-size: 16px;
 }
 }
 
+@media (max-width: 600px) {
+#region-centre {
+font-size: 0;
+}
+}
+
 #fullscreen {
-position: relative;
+top: 1px;
+position: absolute;
 z-index: 1;
 display: none;
 background-color: transparent;
@@ -120,4 +219,6 @@ border-radius: 0px;
 padding: 8px;
 color: white;
 cursor: pointer;
+left: 50%;
+transform: translateX(-50%);
 }
