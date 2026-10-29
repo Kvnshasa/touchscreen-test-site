@@ -24,6 +24,7 @@ center: "center"
 
 //Check if they click fullscreen button and enters or exits fullscreen
 fullscreen.addEventListener("click", function(event) {
+//Prevents the event from affecting parents (doesn't make a pointer in testArea)
 event.stopPropagation();
 screenRequest = !screenRequest;
 if (screenRequest) {
@@ -49,6 +50,7 @@ screenRequest = document.fullscreenElement != null;
 button.addEventListener("click", function() {
 test.innerHTML = "Testing! Touch the area below";
 testStart = true;
+//Displays fullscreen button as an inline-block
 fullscreen.style.display = "inline-block";
 });
 
@@ -62,6 +64,7 @@ console.log(event.clientY)
 }});
 
 {
+//Create a new map so pointers get update each time since maps are mutable
 const activePointers = new Map();
 
 // Function updates number of current active touches
@@ -101,6 +104,7 @@ updateTouchedRegion(storeX, storeY);
 activePointers.set(event.pointerId, dot);
 updateActiveTouchCount();
 if (activePointers.size > maxTouch) {
+//Update maximum touches
 maxTouch = activePointers.size
 maxTouches.innerHTML = "Maximum Touches: " + maxTouch
 }
@@ -147,6 +151,7 @@ activeTouches.innerHTML = "Active Touches: 0";
 test.innerHTML = "Ready? Press Start to begin!";
 regionsStatus.innerHTML = ""
 regionsTouched = { topLeft: false, topRight: false, bottomLeft: false, bottomRight: false, center: false };
+syncRegionHighlights();
 summary.innerHTML = ""
 for (let [key, value] of activePointers) {
 activePointers.get(key).remove();
@@ -155,12 +160,50 @@ activePointers.get(key).remove();
 activePointers.clear();
 fullscreen.style.display = "none";
 })
+
+// End the pointer as soon as it moves outside the test area
+div.addEventListener("pointermove", function(event) {
+if (!testStart) return;
+const dot = activePointers.get(event.pointerId);
+if (!dot) return;
+
+const rect = testArea.getBoundingClientRect();
+const isOutside = event.clientX <= rect.left || event.clientX >= rect.right ||
+                  event.clientY <= rect.top  || event.clientY >= rect.bottom;
+
+//Delete the dot if its outside the test area (This one handles it for fingers)
+if (isOutside) {
+dot.remove();
+activePointers.delete(event.pointerId);
+updateActiveTouchCount();
+}
+});
+}
+
+// Maps each region to its element so the UI can reflect touch state
+const regionElements = {
+topLeft: document.getElementById("region-top-left"),
+topRight: document.getElementById("region-top-right"),
+bottomLeft: document.getElementById("region-bottom-left"),
+bottomRight: document.getElementById("region-bottom-right"),
+center: document.getElementById("region-center")
+};
+
+// Adds or removes the "is-touched" highlight on each region
+function syncRegionHighlights() {
+for (const key in regionElements) {
+const element = regionElements[key];
+if (element) {
+element.classList.toggle("is-touched", regionsTouched[key] === true);
+}
+}
 }
 
 // Function updates how many regions have been touched
 function updateRegionsDisplay() {
   const touchedCount = Object.values(regionsTouched).filter(value => value == true).length
   regionsStatus.innerHTML = "Regions Touched: " + touchedCount + " of 5";
+  syncRegionHighlights();
   updateSummary();
 }
 
