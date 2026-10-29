@@ -2,22 +2,44 @@
 <html lang="en">
 <head>
     <title>About Touchscreen Test</title>
+    <!--Make viewport match device screen width in pixels, zoom at 100% -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="about touchscreen test and what we do">
+    <!-- Connect style.css and favicon.svg to about.html-->
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
 </head>
 
 <body>
 
-<header>
-    <h1>About Touchscreen Test</h1>
-    <nav>
-        <a href="index.html">Touchscreen Test</a>
-        <a href="touchscreen-guide/touchscreen-guide.html">Guide</a>
-    </nav>
+<header class="site-header">
+<!-- aria is for visually impaired users, span groups for styling effects -->
+<a class="brand" href="index.html" aria-label="Touchscreen Test home">
+<span class="brand-mark" aria-hidden="true">
+<!-- Creates concentric circles with ripple effect, radius 2.2, 6 and 9.5-->
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round">
+<circle cx="12" cy="12" r="2.2" fill="currentColor" stroke="none"/>
+<circle cx="12" cy="12" r="6" stroke-width="1.6" opacity="0.7"/>
+<circle cx="12" cy="12" r="9.5" stroke-width="1.6" opacity="0.35"/>
+</svg>
+</span>
+<!-- Nesting so Test can be a different colour-->
+<span class="brand-text">Touchscreen <span>Test</span></span>
+</a>
+<!-- Links to touchscreen guide and test-->
+<nav class="site-nav" aria-label="Main">
+<a href="index.html">Test</a>
+<a href="touchscreen-guide/touchscreen-guide.html">Guide</a>
+<!-- Informs assistive technologies about is current page -->
+<a href="about.html" aria-current="page">About</a>
+</nav>
 </header>
 
 <main>
+
+<h1 class="page-title">About Touchscreen Test</h1>
+
+<!-- Text to user to inform them about touchscreen test -->
 
 <h2>Why this site exists</h2>
 <p>The site is designed to provide a simple way to test
@@ -35,6 +57,7 @@ across the test area on your device.
 </main>
 
 <footer>
+<!-- Footer links to my email and privacy site -->
     <a href="privacy/privacy.html">Privacy</a>
     <a href="mailto:pikagoated@gmail.com">Contact</a>
 </footer>

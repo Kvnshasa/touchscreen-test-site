@@ -2,22 +2,43 @@
 <html lang="en">
 <head>
     <title>How to Test a Phone Touchscreen</title>
+    <!--Make viewport match device screen width in pixels, zoom at 100% -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="a guide on common touchscreen problems, and how to test for them.">
+    <!-- Connect style.css and favicon.svg to touchscreen-guide.html-->
     <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 </head>
 
 <body>
 
-<header>
-    <h1>How to Test a Phone Touchscreen</h1>
-    <nav>
-        <a href="../index.html">Touchscreen Test</a>
-        <a href="../about.html">About</a>
-    </nav>
+<header class="site-header">
+<!-- aria is for visually impaired users, span groups for styling effects -->
+<a class="brand" href="../index.html" aria-label="Touchscreen Test home">
+<!-- Creates concentric circles with ripple effect, radius 2.2, 6 and 9.5-->
+<span class="brand-mark" aria-hidden="true">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round">
+<circle cx="12" cy="12" r="2.2" fill="currentColor" stroke="none"/>
+<circle cx="12" cy="12" r="6" stroke-width="1.6" opacity="0.7"/>
+<circle cx="12" cy="12" r="9.5" stroke-width="1.6" opacity="0.35"/>
+</svg>
+</span>
+<!-- Nesting so Test can be a different colour-->
+<span class="brand-text">Touchscreen <span>Test</span></span>
+</a>
+<nav class="site-nav" aria-label="Main">
+<!-- Links to test and about touchscreen test-->
+<a href="../index.html">Test</a>
+<!-- Informs assistive technologies touchscreen guide is current page -->
+<a href="touchscreen-guide.html" aria-current="page">Guide</a>
+<a href="../about.html">About</a>
+</nav>
 </header>
 
+<!-- Text to user guiding them on how to use touchscreen test -->
 <main>
+<h1 class="page-title">How to Test a Phone Touchscreen</h1>
+
 <h2>What is a touchscreen test?</h2>
 <p>A test to check whether or not your device's screen is responsive to
 touch </p>
@@ -74,11 +95,12 @@ Ready to test your touchscreen?
 <a href="../index.html">Try our touchscreen test</a>.
 </p>
 
-<p>Last updated: 26 September 2026</p>
+<p>Last updated: 29 October 2026</p>
 
 </main>
 
 <footer>
+<!-- Footer links to my email and privacy site -->
     <a href="../privacy/privacy.html">Privacy</a>
     <a href="mailto:pikagoated@gmail.com">Contact</a>
 </footer>

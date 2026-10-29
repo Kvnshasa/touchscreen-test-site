@@ -2,22 +2,43 @@
 <html lang="en">
 <head>
 <title>Touchscreen Test</title>
+<!--Make viewport match device screen width in pixels, zoom at 100% -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="KKEMgLZklFAj59GcbcWxudozqbb_p53Q6Vcbcp5S3Hw" />
 <meta name="description" content="test your touchscreen with touch points and multi-touch. Track your active and maximum touches."/>
+<!-- Connect style.css and favicon.svg to index.html-->
 <link rel="stylesheet" href="style.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 </head>
 
 <body>
-<header>
-<h1>Touchscreen Test</h1>
-<a href="about.html">About</a>
+<header class="site-header">
+<!-- aria is for visually impaired users, span groups for styling effects -->
+<a class="brand" href="index.html" aria-label="Touchscreen Test home"><span class="brand-mark" aria-hidden="true">
+<!-- Creates concentric circles with ripple effect, radius 2.2, 6 and 9.5-->
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round">
+<circle cx="12" cy="12" r="2.2" fill="currentColor" stroke="none"/>
+<circle cx="12" cy="12" r="6" stroke-width="1.6" opacity="0.7"/>
+<circle cx="12" cy="12" r="9.5" stroke-width="1.6" opacity="0.35"/>
+</svg>
+</span>
+<!-- Nesting so Test can be a different colour-->
+<span class="brand-text">Touchscreen <span>Test</span></span>
+</a>
+<nav class="site-nav" aria-label="Main">
+<!-- Informs assistive technologies test is current page -->
+<a href="index.html" aria-current="page">Test</a>
+<!-- Links to touchscreen guide and about touchscreen test-->
 <a href="touchscreen-guide/touchscreen-guide.html">Guide</a>
+<a href="about.html">About</a>
+</nav>
 </header>
 
 <main> 
 
-<p>This tool is a touchscreen tester allowing anyone to test their screen for dead zones and 
+<h1 class="page-title">Touchscreen Test</h1>
+
+<p class="lead">This tool is a touchscreen tester allowing anyone to test their screen for dead zones and 
 multi-touch. Suitable for anyone who wants to run a touch screen 
 test their laptop, phone, tablet or any touchscreen device.
 </p>
@@ -31,14 +52,19 @@ Your result will appear underneath.
 <button id="start">Start</button>
 <p id="test">Ready? Press Start to begin!</p>
 
+<!-- Create test area and all the different regions of test area -->
 <div id="test-area">
   <div id="region-top-left" class="region">Top Left</div>
   <div id="region-top-right" class="region">Top Right</div>
   <div id="region-bottom-left" class="region">Bottom Left</div>
   <div id="region-bottom-right" class="region">Bottom Right</div>
   <div id="region-center" class="region">Centre</div>
+
+<!-- Fullscreen button -->
 <button id="fullscreen">
+<!-- Tell browser these parts should be formatted as SVG for fullscreen button -->
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Tells browser where to move to draw the fullscreen button, like a pen with coordinates -->
   <path d="M8 3H5a2 2 0 0 0-2 2v3"/>
   <path d="M21 8V5a2 2 0 0 0-2-2h-3"/>
   <path d="M3 16v3a2 2 0 0 0 2 2h3"/>
@@ -57,6 +83,7 @@ Your result will appear underneath.
 <button id="reset">Reset</button>
 </div>
 
+<!-- Guide user about using this site and the result -->
 <h2>How to use it</h2>
 
 <p>
@@ -92,10 +119,11 @@ of what a missed region might mean, see our
 </p>
 
 </main>
-
+<!-- Link index.html to script.js -->
 <script src="script.js"></script>
 
 <footer>
+<!-- Footer links to my email and privacy site -->
     <a href="privacy/privacy.html">Privacy</a>
     <a href="mailto:pikagoated@gmail.com">Contact</a>
 </footer>
