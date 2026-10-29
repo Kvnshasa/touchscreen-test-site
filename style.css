@@ -12,11 +12,11 @@
 --outline: rgba(255, 255, 255, 0.25);
 --border: rgba(255,255,255,0.06); 
 --glass: rgba(255,255,255,0.03);  
---region-tleft: rgba(28,3,42,0.8);
---region-tright: rgba(25, 50, 64, 0.8);
---region-bleft: rgba(25, 50, 64, 0.8);
---region-bright: rgba(28,3,42,0.8);
---region-centre:rgba(50, 60, 71, 1);
+--region-tleft: hsl(210 16% 12%);
+--region-tright: hsl(210 16% 15%);
+--region-bleft: hsl(210 16% 15%);
+--region-bright: hsl(210 16% 12%);
+--region-centre: hsl(210 14% 20%);
 --radius: 12px;
 --gap: 20px;
 }
@@ -230,4 +230,143 @@ color: white;
 cursor: pointer;
 left: 50%;
 transform: translateX(-50%);
+}
+
+/* ============================================================
+   Section 1 - Site header, brand mark & primary navigation
+   ============================================================ */
+
+.site-header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 16px;
+font-size: 16px;
+padding: 4px 0 14px;
+margin: 0 0 32px;
+border-bottom: 1px solid var(--border);
+}
+
+.brand {
+display: inline-flex;
+align-items: center;
+gap: 10px;
+font-size: 1.05rem;
+font-weight: 700;
+letter-spacing: -0.01em;
+color: var(--text);
+text-decoration: none;
+white-space: nowrap;
+}
+
+.brand:hover {
+color: var(--text);
+}
+
+.brand-mark {
+display: grid;
+place-items: center;
+width: 32px;
+height: 32px;
+border-radius: 10px;
+border: 1px solid var(--border);
+background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+color: var(--accent);
+flex: none;
+}
+
+.brand-mark svg {
+width: 19px;
+height: 19px;
+}
+
+.brand-text span {
+color: var(--accent);
+}
+
+.site-nav {
+display: flex;
+align-items: center;
+gap: 2px;
+}
+
+.site-nav a {
+color: var(--muted-text);
+text-decoration: none;
+font-size: 0.95rem;
+font-weight: 500;
+padding: 8px 12px;
+border-radius: 8px;
+transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.site-nav a:hover {
+color: var(--text);
+background-color: rgba(255,255,255,0.05);
+}
+
+.site-nav a[aria-current="page"] {
+color: var(--accent);
+background-color: rgba(255,255,255,0.04);
+}
+
+/* Page heading that replaces the old header <h1> */
+.page-title {
+font-size: clamp(1.9rem, 5vw, 2.6rem);
+line-height: 1.15;
+letter-spacing: -0.02em;
+margin: 0 0 12px;
+color: hsl(220 25% 94%);
+}
+
+.lead {
+font-size: 1.05rem;
+color: var(--muted-text);
+max-width: 62ch;
+margin-top: 0;
+}
+
+@media (max-width: 560px) {
+.site-nav a {
+font-size: 0.875rem;
+padding: 7px 9px;
+}
+}
+
+@media (max-width: 420px) {
+.brand-text {
+display: none;
+}
+.site-header {
+margin-bottom: 24px;
+}
+}
+
+/* ============================================================
+   Section 2 - Test area: palette, legibility & touch feedback
+   ============================================================ */
+
+.region {
+transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+box-shadow: inset 0 0 0 1px rgba(255,255,255,0.025);
+}
+
+/* Centre label needs a lighter foreground on its grey disc (was 3.86:1) */
+#region-center {
+color: hsl(220 20% 88%);
+box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12);
+}
+
+.region.is-touched {
+background-color: hsl(38 42% 15%);
+color: hsl(38 85% 72%);
+box-shadow: inset 0 0 0 1px hsla(36, 77%, 60%, 0.40),
+            inset 0 0 42px hsla(36, 77%, 60%, 0.10);
+}
+
+#region-center.is-touched {
+background-color: hsl(38 42% 18%);
+color: hsl(38 85% 74%);
+box-shadow: inset 0 0 0 1px hsla(36, 77%, 60%, 0.45),
+            inset 0 0 24px hsla(36, 77%, 60%, 0.14);
 }
