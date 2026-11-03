@@ -1,5 +1,4 @@
 // Declaring variables
-
 const button = document.getElementById("start");
 const reset = document.getElementById("reset");
 let test = document.getElementById("test");
@@ -50,18 +49,12 @@ screenRequest = document.fullscreenElement != null;
 button.addEventListener("click", function() {
 test.innerHTML = "Testing! Touch the area below";
 testStart = true;
+button.disabled = true;
 //Displays fullscreen button as an inline-block
 fullscreen.style.display = "inline-block";
 });
 
 const div = document.getElementById("test-area")
-
-// Check if they're pressing down and records coordinates
-div.addEventListener("pointerdown", function(event) {
-if (testStart) {
-console.log(event.clientX)
-console.log(event.clientY)
-}});
 
 {
 //Create a new map so pointers get update each time since maps are mutable
@@ -69,7 +62,9 @@ const activePointers = new Map();
 
 // Function updates number of current active touches
 function updateActiveTouchCount() {
-  activeTouches.innerHTML = "Active Touches: " + activePointers.size;
+activeTouches.textContent = activePointers.size;
+// Active touches data state is live only if active touches > 0
+activeTouches.dataset.state = activePointers.size > 0 ? "live" : "idle";
 }
 
 // Check if they are moving the mouse and where to
@@ -106,7 +101,7 @@ updateActiveTouchCount();
 if (activePointers.size > maxTouch) {
 //Update maximum touches
 maxTouch = activePointers.size
-maxTouches.innerHTML = "Maximum Touches: " + maxTouch
+maxTouches.textContent = maxTouch;
 }
 }})
 
@@ -146,10 +141,12 @@ updateActiveTouchCount();
 reset.addEventListener("click", function() {
 testStart = false;
 maxTouch = 0;
-maxTouches.innerHTML = "Maximum Touches: " + maxTouch;
-activeTouches.innerHTML = "Active Touches: 0";
+button.disabled = false;
+maxTouches.textContent = "0";
+activeTouches.textContent = "0";
+activeTouches.dataset.state = "idle";
 test.innerHTML = "Ready? Press Start to begin!";
-regionsStatus.innerHTML = ""
+regionsStatus.textContent = "0 / 5";
 regionsTouched = { topLeft: false, topRight: false, bottomLeft: false, bottomRight: false, center: false };
 syncRegionHighlights();
 summary.innerHTML = ""
@@ -202,7 +199,7 @@ element.classList.toggle("is-touched", regionsTouched[key] === true);
 // Function updates how many regions have been touched
 function updateRegionsDisplay() {
   const touchedCount = Object.values(regionsTouched).filter(value => value == true).length
-  regionsStatus.innerHTML = "Regions Touched: " + touchedCount + " of 5";
+  regionsStatus.textContent = touchedCount + " / 5";
   syncRegionHighlights();
   updateSummary();
 }
@@ -212,9 +209,11 @@ function updateSummary() {
 const missing = Object.keys(regionsTouched).filter(key => !regionsTouched[key]);
 
 if (missing.length === 0) {
+summary.dataset.state = "complete";
 summary.innerHTML = "All 5 regions touched, max " + maxTouch + " simultaneous touch" + (maxTouch === 1 ? "" : "es") + " - your touchscreen appears to be working normally. ";
 }
 else {
+summary.dataset.state = "incomplete";
 const missingNames = missing.map(key => regionLabels[key]).join(", ");
 summary.innerHTML = "Test incomplete - you haven't touched: " + missingNames + ". Drag into those areas to finish the test."; 
 }

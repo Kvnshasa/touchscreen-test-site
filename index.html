@@ -49,8 +49,11 @@ Your result will appear underneath.
 </p>
 
 <div class="app-shell">
+<div class="shell-bar">
 <button id="start">Start</button>
 <p id="test">Ready? Press Start to begin!</p>
+<button id="reset">Reset</button>
+</div>
 
 <!-- Create test area and all the different regions of test area -->
 <div id="test-area">
@@ -61,7 +64,7 @@ Your result will appear underneath.
   <div id="region-center" class="region">Centre</div>
 
 <!-- Fullscreen button -->
-<button id="fullscreen">
+<button id="fullscreen" aria-label="Enter fullscreen">
 <!-- Tell browser these parts should be formatted as SVG for fullscreen button -->
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
   <!-- Tells browser where to move to draw the fullscreen button, like a pen with coordinates -->
@@ -73,14 +76,15 @@ Your result will appear underneath.
 </button>
 </div>
 
+<!-- span to target different parts of the text for the summary-->
+<!-- data-state on active to update colour of count when active touches > 0 -->
 <div class="status">
-<p id="active-touch-count">Active Touches: 0</p>
-<p id="max-touch-count">Maximum Touches: 0</p>
-<p id="regions-status"></p>
+<p class="stat"><span class="stat-label">Active</span><span class="stat-value" id="active-touch-count" data-state="idle">0</span></p>
+<p class="stat"><span class="stat-label">Maximum</span><span class="stat-value" id="max-touch-count">0</span></p>
+<p class="stat"><span class="stat-label">Regions</span><span class="stat-value" id="regions-status">0 / 5</span></p>
 <p id="summary"></p>
 </div>
 
-<button id="reset">Reset</button>
 </div>
 
 <!-- Guide user about using this site and the result -->
