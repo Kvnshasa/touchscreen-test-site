@@ -248,7 +248,7 @@ font-size: 16px;
 /* Meant to help for resizing for mobile users */
 @media (max-width: 600px) {
 #region-center {
-font-size: clamp(9px, 2,45vw, 11px)
+font-size: clamp(9px, 2.45vw, 11px)
 }
 body {padding: 16px;
 }
@@ -322,7 +322,7 @@ color: var(--accent);
 flex: none;
 }
 
-*/ Handles the logo itself */
+/* Handles the logo itself */
 .brand-mark svg {
 width: 19px;
 height: 19px;
