@@ -1,4 +1,5 @@
 // Declaring variables
+
 const button = document.getElementById("start");
 const reset = document.getElementById("reset");
 let test = document.getElementById("test");
@@ -62,9 +63,9 @@ const activePointers = new Map();
 
 // Function updates number of current active touches
 function updateActiveTouchCount() {
-activeTouches.textContent = activePointers.size;
-// Active touches data state is live only if active touches > 0
-activeTouches.dataset.state = activePointers.size > 0 ? "live" : "idle";
+  activeTouches.textContent = activePointers.size;
+  // Active touches data state is live only if active touches > 0
+  activeTouches.dataset.state = activePointers.size > 0 ? "live" : "idle";
 }
 
 // Check if they are moving the mouse and where to
@@ -92,17 +93,16 @@ const dot = document.createElement("div");
 dot.className = "touch-point";
 testArea.appendChild(dot);
 
-const rect = testArea.getBoundingClientRect();
 const {storeX, storeY} = positionDot(dot, event);
-updateTouchedRegion(storeX, storeY);
 
 activePointers.set(event.pointerId, dot);
 updateActiveTouchCount();
 if (activePointers.size > maxTouch) {
 //Update maximum touches
 maxTouch = activePointers.size
-maxTouches.textContent = maxTouch;
+maxTouches.textContent = maxTouch
 }
+updateTouchedRegion(storeX, storeY);
 }})
 
 // Remove the pointer when screen no longer touched and adjust active touches
@@ -157,6 +157,18 @@ activePointers.get(key).remove();
 activePointers.clear();
 fullscreen.style.display = "none";
 })
+
+/* ============================================================
+   ADDED FIX - finger sliding off the box left a stuck pointer
+   ------------------------------------------------------------
+   Cause: on touch, the browser implicitly captures the pointer
+   to the element that received pointerdown. While captured,
+   boundary events are suppressed, so "pointerleave" never fires
+   and the dot stays in activePointers until the finger lifts.
+
+   Instead of waiting for a leave event, check the coordinates on
+   every move. pointermove is always delivered, capture or not.
+   ============================================================ */
 
 // End the pointer as soon as it moves outside the test area
 div.addEventListener("pointermove", function(event) {
