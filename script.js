@@ -22,10 +22,15 @@ bottomRight: "bottom-right",
 center: "center"
 };
 
+// Check if .requestFullscreen exists as a function (Doesn't exist on iPhone)
+const canFullscreen = typeof testArea.requestFullscreen === "function";
+
 //Check if they click fullscreen button and enters or exits fullscreen
 fullscreen.addEventListener("click", function(event) {
 //Prevents the event from affecting parents (doesn't make a pointer in testArea)
 event.stopPropagation();
+// Leaves event listener if fullscreen isn't available
+if (!canFullscreen) return;
 screenRequest = !screenRequest;
 if (screenRequest) {
 testArea.requestFullscreen()
@@ -51,8 +56,8 @@ button.addEventListener("click", function() {
 test.innerHTML = "Testing! Touch the area below";
 testStart = true;
 button.disabled = true;
-//Displays fullscreen button as an inline-block
-fullscreen.style.display = "inline-block";
+//Displays fullscreen button as an inline-block 
+if (canFullscreen) fullscreen.style.display = "inline-block";
 });
 
 const div = document.getElementById("test-area")
